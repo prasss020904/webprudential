@@ -129,17 +129,28 @@
   .reason-visual .quote{font-family:'Fraunces',serif;font-size:1.5rem;line-height:1.35;}
   .reason-visual .who{margin-top:24px;font-size:.88rem;color:rgba(255,255,255,.75);}
 
-  /* ---------- Piramida proteksi ---------- */
-  .pyramid-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center;}
-  @media(max-width:820px){.pyramid-grid{grid-template-columns:1fr;gap:40px;}}
-  .pyramid-svg-wrap{max-width:360px;margin:0 auto;}
-  .pyramid-legend{border-top:1px solid var(--line);}
-  .pyramid-item{display:flex;gap:20px;padding:26px 0;border-bottom:1px solid var(--line);}
-  .pyramid-item .dot{flex:none;width:14px;height:14px;border-radius:2px;margin-top:5px;}
-  .pyramid-item h3{font-size:1.05rem;font-weight:600;color:var(--navy-deep);margin-bottom:6px;}
-  .pyramid-item p{font-size:.94rem;color:var(--text-muted);}
-  .pyramid-item .tier{font-size:.78rem;color:var(--gold);letter-spacing:.02em;margin-bottom:4px;}
-  .pyramid-foot{margin-top:28px;padding:18px 22px;background:var(--navy);color:var(--white);border-radius:2px;font-size:.92rem;display:flex;align-items:center;gap:12px;}
+  /* ---------- Piramida proteksi (poster diagram) ---------- */
+  .pyramid-poster{background:var(--white);border:1px solid var(--line);border-radius:4px;padding:44px;}
+  @media(max-width:640px){.pyramid-poster{padding:28px 22px;}}
+  .poster-grid{display:flex;align-items:stretch;gap:32px;}
+  @media(max-width:820px){.poster-grid{flex-direction:column;gap:0;}}
+  .poster-col-label,.poster-col-desc{display:flex;flex-direction:column;flex:1;}
+  .poster-col-label{align-items:flex-end;text-align:right;}
+  .poster-col-desc{align-items:flex-start;text-align:left;}
+  @media(max-width:820px){
+    .poster-col-label,.poster-col-desc{align-items:flex-start;text-align:left;}
+  }
+  .poster-svg-col{flex:0 0 240px;display:flex;justify-content:center;}
+  @media(max-width:820px){.poster-svg-col{flex:0 0 auto;margin:20px 0;}}
+  .pband{display:flex;flex-direction:column;justify-content:center;}
+  .pband.top{flex-grow:120;}
+  .pband.mid{flex-grow:80;}
+  .pband.bottom{flex-grow:80;}
+  .pband.spacer{flex-grow:60;}
+  @media(max-width:820px){.pband{flex-grow:1!important;padding:10px 0;}.pband.spacer{display:none;}}
+  .pband h4{font-family:'Fraunces',serif;font-size:1.02rem;font-weight:600;line-height:1.25;}
+  .pband p{font-size:.86rem;color:var(--text-muted);margin-top:5px;max-width:27ch;}
+  .pyramid-foot{margin-top:36px;padding:18px 22px;background:var(--navy);color:var(--white);border-radius:2px;font-size:.92rem;display:flex;align-items:center;gap:12px;}
   .pyramid-foot .rule{width:26px;height:1px;background:var(--gold);flex:none;}
 
   /* ---------- Produk (alternating rows) ---------- */
@@ -317,43 +328,43 @@
       <p>Semakin ke bawah, semakin luas fondasinya. Setiap lapis dibangun di atas lapis sebelumnya — bukan pilihan, tapi tahapan.</p>
     </div>
 
-    <div class="pyramid-grid">
-      <div class="pyramid-svg-wrap">
-        <svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Piramida tiga lapis: proteksi jiwa di puncak, proteksi kondisi kritis di tengah, proteksi kesehatan di dasar">
-          <polygon points="200,10 263.9,120 136.1,120" fill="var(--navy)"></polygon>
-          <polygon points="136.1,123 263.9,123 321.9,220 78.1,220" fill="var(--gold)"></polygon>
-          <polygon points="78.1,223 321.9,223 380,320 20,320" fill="var(--teal)"></polygon>
-        </svg>
-      </div>
-
-      <div class="pyramid-legend">
-        <div class="pyramid-item">
-          <span class="dot" style="background:var(--navy)"></span>
-          <div>
-            <div class="tier">Lapis 1 — Puncak</div>
-            <h3>Proteksi Jiwa</h3>
-            <p>Menyiapkan warisan finansial bagi pasangan atau anak, sehingga kehidupan mereka tetap tertata saat orang tua tiada.</p>
-          </div>
-        </div>
-        <div class="pyramid-item">
-          <span class="dot" style="background:var(--gold)"></span>
-          <div>
-            <div class="tier">Lapis 2 — Tengah</div>
-            <h3>Proteksi Kondisi Kritis</h3>
-            <p>Menggantikan penghasilan pencari nafkah utama apabila terjadi kondisi kritis di masa produktif, sebelum tabungan terkuras.</p>
-          </div>
-        </div>
-        <div class="pyramid-item">
-          <span class="dot" style="background:var(--teal)"></span>
-          <div>
-            <div class="tier">Lapis 3 — Dasar</div>
-            <h3>Proteksi Kesehatan</h3>
-            <p>Melindungi aset yang sudah dimiliki keluarga dari risiko biaya rumah sakit yang bisa datang kapan saja.</p>
-          </div>
+    <div class="pyramid-poster">
+      <div class="poster-grid">
+        <div class="poster-col-label">
+          <div class="pband top"><h4 style="color:var(--navy)">Proteksi Jiwa</h4></div>
+          <div class="pband mid"><h4 style="color:#9C7A2E">Proteksi Kondisi Kritis</h4></div>
+          <div class="pband bottom"><h4 style="color:var(--teal-deep)">Proteksi Kesehatan</h4></div>
+          <div class="pband spacer"></div>
         </div>
 
-        <div class="pyramid-foot"><span class="rule"></span>Konsep proteksi finansial keluarga secara menyeluruh, dari dasar hingga puncak.</div>
+        <div class="poster-svg-col">
+          <svg viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Piramida tiga lapis di atas siluet kota: proteksi jiwa di puncak, proteksi kondisi kritis di tengah, proteksi kesehatan di dasar">
+            <g opacity="0.55" fill="#D6D7CF">
+              <rect x="0" y="322" width="20" height="38"></rect>
+              <rect x="22" y="305" width="16" height="55"></rect>
+              <rect x="40" y="330" width="14" height="30"></rect>
+              <rect x="346" y="315" width="16" height="45"></rect>
+              <rect x="364" y="332" width="14" height="28"></rect>
+              <rect x="380" y="300" width="20" height="60"></rect>
+              <rect x="60" y="340" width="12" height="20"></rect>
+              <rect x="330" y="340" width="12" height="20"></rect>
+            </g>
+            <line x1="0" y1="360" x2="400" y2="360" stroke="#D6D7CF" stroke-width="2"></line>
+            <polygon points="200,16 264,140 136,140" fill="var(--navy)"></polygon>
+            <polygon points="136,143 264,143 322,222 78,222" fill="var(--gold)"></polygon>
+            <polygon points="78,225 322,225 372,300 28,300" fill="var(--teal)"></polygon>
+          </svg>
+        </div>
+
+        <div class="poster-col-desc">
+          <div class="pband top"><p>Menyiapkan warisan finansial untuk pasangan atau anak apabila orang tua meninggal dunia.</p></div>
+          <div class="pband mid"><p>Menggantikan penghasilan pencari nafkah utama saat terjadi kondisi kritis di usia produktif.</p></div>
+          <div class="pband bottom"><p>Melindungi aset yang sudah dimiliki dari risiko biaya rumah sakit yang besar.</p></div>
+          <div class="pband spacer"></div>
+        </div>
       </div>
+
+      <div class="pyramid-foot"><span class="rule"></span>Konsep proteksi finansial keluarga secara menyeluruh, dari dasar hingga puncak.</div>
     </div>
   </div>
 </section>
