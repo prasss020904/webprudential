@@ -3,856 +3,597 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pruraising | Pengenalan Produk Asuransi Prudential</title>
+<title>PruRising Agency — Company Profile</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#1C1C1C;
-    --navy-deep:#0D0D0D;
-    --gold:#E31937;
-    --gold-soft:#FF9CAB;
-    --teal:#7A0C22;
-    --teal-deep:#520817;
+    --red:#F26522;
+    --red-soft:#FFB98A;
+    --maroon:#B34700;
+    --black:#161616;
+    --black-deep:#0A0A0A;
     --bg:#F7F5F4;
     --white:#FFFFFF;
     --text:#1A1A1A;
-    --text-muted:#6B6B6B;
+    --muted:#6B6B6B;
     --line:#E2E0DE;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
-  body{
-    background:var(--bg);
-    color:var(--text);
-    font-family:'Inter',sans-serif;
-    line-height:1.55;
-    -webkit-font-smoothing:antialiased;
-  }
+  body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;}
   h1,h2,h3,.serif{font-family:'Fraunces',serif;}
   a{color:inherit;text-decoration:none;}
   img{max-width:100%;display:block;}
-  .wrap{max-width:1160px;margin:0 auto;padding:0 32px;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px;}
   @media(max-width:640px){.wrap{padding:0 20px;}}
-
-  :focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+  :focus-visible{outline:2px solid var(--red);outline-offset:3px;}
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
 
-  /* ---------- Nav ---------- */
-  header{
-    position:sticky;top:0;z-index:40;
-    background:rgba(246,246,243,.92);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);
+  header{position:sticky;top:0;z-index:40;background:rgba(247,245,244,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .navrow{display:flex;align-items:center;justify-content:space-between;height:74px;}
+  .logo{font-family:'Fraunces',serif;font-weight:600;font-size:1.2rem;color:var(--black);display:flex;align-items:center;}
+  .logo-img{height:44px;width:auto;display:block;}
+  nav.main-nav{display:flex;gap:6px;}
+  .nav-item{position:relative;}
+  .nav-trigger{
+    display:flex;align-items:center;gap:6px;background:none;border:none;cursor:pointer;
+    font-family:'Inter',sans-serif;font-size:.92rem;font-weight:500;color:var(--text);padding:12px 14px;border-radius:2px;
   }
-  .navrow{display:flex;align-items:center;justify-content:space-between;height:76px;}
-  .logo{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:600;font-size:1.25rem;color:var(--navy);}
-  .logo-img{height:72px;width:auto;display:block;flex:none;border-radius:50%;object-fit:cover;}
-  nav.links{display:flex;gap:28px;font-size:.92rem;color:var(--text-muted);}
-  nav.links a:hover{color:var(--navy);}
-  .nav-cta{
-    background:var(--teal);color:var(--white);padding:11px 22px;border-radius:2px;
-    font-size:.92rem;font-weight:600;letter-spacing:.01em;
-  }
-  .nav-cta:hover{background:var(--teal-deep);}
-  @media(max-width:900px){nav.links{display:none;}}
+  .nav-trigger:hover{color:var(--red);}
+  .nav-item.active .nav-trigger{color:var(--red);}
+  .chev{width:14px;height:14px;flex:none;transition:transform .18s ease;}
+  .nav-item.active .chev{transform:rotate(180deg);}
+  @media(max-width:900px){nav.main-nav{display:none;}}
 
-  /* ---------- Hero ---------- */
-  .hero{padding:48px 0 36px;}
-  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center;}
-  @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:48px;}}
-  .eyebrow-line{display:flex;align-items:center;gap:14px;margin-bottom:26px;color:var(--teal-deep);font-size:.9rem;font-weight:500;}
-  .eyebrow-line .rule{width:38px;height:1px;background:var(--gold);}
-  .hero h1{
-    font-size:clamp(2.4rem,4.6vw,3.6rem);
-    font-weight:500;
-    line-height:1.08;
-    color:var(--navy-deep);
-    letter-spacing:-.01em;
-    max-width:14ch;
+  .simple-panel{
+    position:absolute;top:100%;left:0;background:var(--white);border:1px solid var(--line);border-radius:4px;
+    min-width:220px;padding:16px;box-shadow:0 18px 32px -16px rgba(0,0,0,.18);display:none;
   }
-  .hero p.lede{margin-top:24px;font-size:1.1rem;color:var(--text-muted);max-width:46ch;}
-  .hero-actions{display:flex;gap:18px;margin-top:34px;flex-wrap:wrap;align-items:center;}
-  .btn-primary{
-    background:var(--navy);color:var(--white);padding:15px 30px;border-radius:2px;
-    font-weight:600;font-size:.98rem;border:1px solid var(--navy);
-  }
-  .btn-primary:hover{background:var(--navy-deep);}
-  .btn-ghost{padding:15px 6px;font-weight:600;font-size:.98rem;border-bottom:1px solid var(--text);color:var(--text);}
-  .btn-ghost:hover{color:var(--teal-deep);border-color:var(--teal-deep);}
+  .nav-item.active .simple-panel{display:block;}
+  .simple-panel p{font-size:.86rem;color:var(--muted);font-style:italic;}
 
-  /* Hero policy card mock */
-  .policy-card{
-    background:var(--navy);color:var(--white);border-radius:4px;padding:36px 32px;
-    position:relative;overflow:hidden;box-shadow:0 24px 48px -18px rgba(15,42,74,.45);
+  .mega-panel{
+    position:absolute;top:100%;left:0;background:var(--white);border:1px solid var(--line);border-radius:4px;
+    box-shadow:0 24px 48px -18px rgba(0,0,0,.2);display:none;overflow:hidden;
   }
-  .policy-card::before{
-    content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;
-    border-radius:50%;background:radial-gradient(circle,rgba(201,162,75,.28),transparent 70%);
+  .nav-item.active .mega-panel{display:flex;}
+  .mega-col-groups{width:340px;border-right:1px solid var(--line);padding:22px 0;}
+  .mega-group{padding:0 8px;}
+  .mega-group + .mega-group{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);}
+  .mega-group-head{display:flex;align-items:center;gap:10px;padding:6px 14px 10px;font-size:.8rem;color:var(--muted);letter-spacing:.01em;}
+  .mega-group-head .gicon{width:20px;height:20px;flex:none;color:var(--red);}
+  .cat-row{
+    width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;
+    background:none;border:none;text-align:left;cursor:pointer;padding:10px 14px;border-radius:3px;
+    font-family:'Inter',sans-serif;font-size:.92rem;color:var(--text);
   }
-  .policy-card .label{font-size:.78rem;letter-spacing:.03em;color:var(--gold-soft);text-transform:none;}
-  .policy-card .name{font-family:'Fraunces',serif;font-size:1.5rem;margin-top:6px;}
-  .policy-card .divider{height:1px;background:rgba(255,255,255,.16);margin:24px 0;}
-  .policy-row{display:flex;justify-content:space-between;font-size:.92rem;padding:9px 0;color:rgba(255,255,255,.78);}
-  .policy-row strong{color:var(--white);font-weight:600;}
-  .policy-badge{
-    display:inline-flex;align-items:center;gap:8px;margin-top:22px;background:rgba(255,255,255,.08);
-    padding:8px 14px;border-radius:2px;font-size:.82rem;border:1px solid rgba(255,255,255,.16);
-  }
-  .policy-badge .dot{width:7px;height:7px;border-radius:50%;background:#5CD6A0;}
+  .cat-row:hover,.cat-row.active{background:#FBEEE5;color:var(--maroon);}
+  .cat-row .arrow{width:16px;height:16px;flex:none;color:var(--muted);}
+  .cat-row:hover .arrow,.cat-row.active .arrow{color:var(--red);}
+  .mega-col-products{width:280px;padding:22px 20px;}
+  .prod-list-title{font-size:.78rem;color:var(--muted);margin-bottom:12px;letter-spacing:.01em;}
+  .prod-list{display:none;flex-direction:column;gap:2px;}
+  .prod-list.active{display:flex;}
+  .prod-list a{display:block;padding:9px 10px;border-radius:3px;font-size:.92rem;color:var(--text);}
+  .prod-list a:hover{background:var(--bg);color:var(--red);}
 
-  /* ---------- Stat strip ---------- */
-  .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:34px 0;}
-  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
-  @media(max-width:700px){.stats-grid{grid-template-columns:repeat(2,1fr);}}
-  .stat-num{font-family:'Fraunces',serif;font-size:1.9rem;color:var(--navy-deep);}
-  .stat-label{font-size:.86rem;color:var(--text-muted);margin-top:4px;}
+  .nav-cta{background:var(--black);color:var(--white);padding:11px 22px;border-radius:2px;font-size:.9rem;font-weight:600;}
+  .nav-cta:hover{background:var(--black-deep);}
 
-  /* ---------- Section shell ---------- */
-  section{padding:44px 0;}
-  .section-head{max-width:640px;margin-bottom:28px;}
-  .section-head .kicker{color:var(--teal-deep);font-size:.9rem;font-weight:500;margin-bottom:14px;display:flex;align-items:center;gap:14px;}
-  .section-head .kicker .rule{width:38px;height:1px;background:var(--gold);}
-  .section-head h2{font-size:clamp(1.8rem,3vw,2.4rem);color:var(--navy-deep);font-weight:500;line-height:1.2;}
-  .section-head p{margin-top:16px;color:var(--text-muted);font-size:1.05rem;max-width:52ch;}
+  /* Hero */
+  .hero{background:var(--black-deep);color:var(--white);padding:76px 0 60px;}
+  .eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:22px;color:var(--red-soft);font-size:.9rem;}
+  .eyebrow .rule{width:36px;height:1px;background:var(--red);}
+  .hero h1{font-size:clamp(2.2rem,4.4vw,3.3rem);font-weight:500;line-height:1.12;max-width:16ch;}
+  .hero p.lede{margin-top:22px;color:rgba(255,255,255,.68);font-size:1.08rem;max-width:56ch;}
+  .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px;border-top:1px solid rgba(255,255,255,.14);padding-top:32px;}
+  @media(max-width:700px){.hero-stats{grid-template-columns:repeat(2,1fr);}}
+  .hstat-num{font-family:'Fraunces',serif;font-size:1.8rem;color:var(--red-soft);}
+  .hstat-label{font-size:.82rem;color:rgba(255,255,255,.6);margin-top:4px;}
 
-  /* ---------- Alasan (asymmetric list) ---------- */
-  .reasons{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;}
-  @media(max-width:820px){.reasons{grid-template-columns:1fr;gap:32px;}}
-  .reason-list{border-top:1px solid var(--line);}
-  .reason-item{padding:26px 0;border-bottom:1px solid var(--line);display:flex;gap:22px;}
-  .reason-item .n{font-family:'Fraunces',serif;color:var(--gold);font-size:1.1rem;flex:none;width:28px;}
-  .reason-item h3{font-size:1.08rem;font-weight:600;color:var(--navy-deep);margin-bottom:6px;}
-  .reason-item p{color:var(--text-muted);font-size:.96rem;}
-  .reason-visual{background:var(--teal);border-radius:4px;padding:40px;color:var(--white);display:flex;flex-direction:column;justify-content:space-between;min-height:340px;}
-  .reason-visual .quote{font-family:'Fraunces',serif;font-size:1.5rem;line-height:1.35;}
-  .quote-photo{margin:22px 0;border-radius:3px;overflow:hidden;border:1px solid rgba(255,255,255,.2);}
-  .quote-photo img{width:100%;height:auto;display:block;}
-  .reason-visual .who{margin-top:24px;font-size:.88rem;color:rgba(255,255,255,.75);}
-  .reason-visual-col{display:flex;flex-direction:column;gap:20px;}
+  section{padding:64px 0;}
+  .section-head{max-width:620px;margin-bottom:36px;}
+  .section-head .kicker{color:var(--maroon);font-size:.9rem;margin-bottom:12px;display:flex;align-items:center;gap:14px;}
+  .section-head .kicker .rule{width:36px;height:1px;background:var(--red);}
+  .section-head h2{font-size:clamp(1.7rem,2.8vw,2.2rem);font-weight:500;color:var(--black);line-height:1.2;}
+  .section-head p{margin-top:14px;color:var(--muted);font-size:1.02rem;max-width:54ch;}
 
-  /* ---------- Piramida proteksi (poster diagram) ---------- */
-  .pyramid-poster{background:var(--white);border:1px solid var(--line);border-radius:4px;padding:44px;}
-  @media(max-width:640px){.pyramid-poster{padding:28px 22px;}}
-  .poster-grid{display:flex;align-items:stretch;gap:32px;}
-  @media(max-width:820px){.poster-grid{flex-direction:column;gap:0;}}
-  .poster-col-label,.poster-col-desc{display:flex;flex-direction:column;flex:1;}
-  .poster-col-label{align-items:flex-end;text-align:right;}
-  .poster-col-desc{align-items:flex-start;text-align:left;}
-  @media(max-width:820px){
-    .poster-col-label,.poster-col-desc{align-items:flex-start;text-align:left;}
-  }
-  .poster-svg-col{flex:0 0 240px;display:flex;justify-content:center;}
-  @media(max-width:820px){.poster-svg-col{flex:0 0 auto;margin:20px 0;}}
-  .pband{display:flex;flex-direction:column;justify-content:center;}
-  .pband.top{flex-grow:120;}
-  .pband.mid{flex-grow:80;}
-  .pband.bottom{flex-grow:80;}
-  .pband.spacer{flex-grow:60;}
-  @media(max-width:820px){.pband{flex-grow:1!important;padding:10px 0;}.pband.spacer{display:none;}}
-  .pband h4{font-family:'Fraunces',serif;font-size:1.02rem;font-weight:600;line-height:1.25;}
-  .pband p{font-size:.86rem;color:var(--text-muted);margin-top:5px;max-width:27ch;}
-  .pyramid-foot{margin-top:36px;padding:18px 22px;background:var(--navy);color:var(--white);border-radius:2px;font-size:.92rem;display:flex;align-items:center;gap:12px;}
-  .pyramid-foot .rule{width:26px;height:1px;background:var(--gold);flex:none;}
+  /* Tentang kami */
+  .about-grid{display:grid;grid-template-columns:1fr .8fr;gap:56px;align-items:start;}
+  @media(max-width:820px){.about-grid{grid-template-columns:1fr;gap:32px;}}
+  .about-grid p{color:var(--muted);margin-bottom:16px;font-size:1rem;max-width:60ch;}
+  .about-figure{background:var(--white);border:1px solid var(--line);border-radius:4px;padding:32px;}
+  .about-figure .figure-num{font-family:'Fraunces',serif;font-size:2.2rem;color:var(--red);}
+  .about-figure .figure-label{font-size:.88rem;color:var(--muted);margin-top:6px;}
+  .about-figure .figure-row{padding:18px 0;border-top:1px solid var(--line);}
+  .about-figure .figure-row:first-child{border-top:none;padding-top:0;}
 
-  /* ---------- Produk (alternating rows) ---------- */
-  .product-row{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center;padding:48px 0;border-bottom:1px solid var(--line);}
-  .product-row:first-of-type{border-top:1px solid var(--line);}
-  .product-row:nth-child(even){grid-template-columns:1.1fr .9fr;}
-  .product-row:nth-child(even) .product-visual{order:2;}
-  @media(max-width:820px){
-    .product-row,.product-row:nth-child(even){grid-template-columns:1fr;gap:26px;}
-    .product-row:nth-child(even) .product-visual{order:0;}
-  }
-  .product-visual{
-    background:var(--white);border:1px solid var(--line);border-radius:4px;padding:30px;
-  }
-  .coverage-bar{display:flex;justify-content:space-between;font-size:.82rem;color:var(--text-muted);margin-bottom:8px;}
-  .coverage-track{height:8px;background:#EDEDE7;border-radius:4px;overflow:hidden;margin-bottom:22px;}
-  .coverage-fill{height:100%;background:var(--gold);border-radius:4px;}
-  .product-tag{display:inline-block;font-size:.8rem;color:var(--teal-deep);border:1px solid var(--teal);padding:5px 12px;border-radius:2px;margin-bottom:16px;}
-  .product-row h3{font-size:1.5rem;color:var(--navy-deep);font-weight:500;margin-bottom:12px;}
-  .product-row p{color:var(--text-muted);margin-bottom:18px;}
-  .product-row ul{list-style:none;}
-  .product-row li{position:relative;padding-left:22px;font-size:.95rem;color:var(--text);margin-bottom:9px;}
-  .product-row li::before{content:'';position:absolute;left:0;top:9px;width:8px;height:1px;background:var(--gold);}
+  /* Visi misi */
+  .vm-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;}
+  @media(max-width:820px){.vm-grid{grid-template-columns:1fr;gap:36px;}}
+  .vision-box{background:var(--black-deep);color:var(--white);border-radius:4px;padding:40px;display:flex;flex-direction:column;justify-content:center;}
+  .vision-box .tag{font-size:.82rem;color:var(--red-soft);margin-bottom:14px;}
+  .vision-box .statement{font-family:'Fraunces',serif;font-size:1.35rem;line-height:1.4;}
+  .mission-list{border-top:1px solid var(--line);}
+  .mission-item{display:flex;gap:20px;padding:22px 0;border-bottom:1px solid var(--line);}
+  .mission-item .n{font-family:'Fraunces',serif;color:var(--red);font-size:1.05rem;flex:none;width:26px;}
+  .mission-item p{color:var(--muted);font-size:.98rem;}
 
-  /* ---------- Cara klaim (legit sequence) ---------- */
-  .claim-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
-  @media(max-width:820px){.claim-steps{grid-template-columns:repeat(2,1fr);}}
-  @media(max-width:520px){.claim-steps{grid-template-columns:1fr;}}
-  .claim-step{padding-top:18px;border-top:2px solid var(--navy);}
-  .claim-step .num{font-family:'Fraunces',serif;font-size:1.6rem;color:var(--gold);}
-  .claim-step h3{font-size:1.02rem;color:var(--navy-deep);margin:10px 0 8px;font-weight:600;}
-  .claim-step p{font-size:.92rem;color:var(--text-muted);}
+  /* Nilai */
+  .values-list{border-top:1px solid var(--line);}
+  .value-row{display:grid;grid-template-columns:.4fr 1.6fr;gap:32px;padding:28px 0;border-bottom:1px solid var(--line);align-items:baseline;}
+  @media(max-width:700px){.value-row{grid-template-columns:1fr;gap:8px;}}
+  .value-row h3{font-family:'Fraunces',serif;font-size:1.15rem;color:var(--maroon);font-weight:600;}
+  .value-row p{color:var(--muted);font-size:.98rem;max-width:60ch;}
 
-  /* ---------- Simulasi premi ---------- */
-  .simulator{
-    background:var(--navy-deep);border-radius:6px;padding:56px;color:var(--white);
-    display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;
-  }
-  @media(max-width:820px){.simulator{grid-template-columns:1fr;padding:36px 26px;gap:36px;}}
-  .simulator h2{font-size:2rem;font-weight:500;margin-bottom:14px;}
-  .simulator p.lede2{color:rgba(255,255,255,.68);max-width:40ch;}
-  .field{margin-top:28px;}
-  .field label{display:flex;justify-content:space-between;font-size:.9rem;color:rgba(255,255,255,.75);margin-bottom:10px;}
-  .field label span.val{color:var(--gold-soft);font-weight:600;}
-  input[type=range]{
-    -webkit-appearance:none;width:100%;height:2px;background:rgba(255,255,255,.28);border-radius:2px;
-  }
-  input[type=range]::-webkit-slider-thumb{
-    -webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--gold);cursor:pointer;
-    border:3px solid var(--navy-deep);
-  }
-  input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--gold);cursor:pointer;border:3px solid var(--navy-deep);}
-  select{
-    width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.22);color:var(--white);
-    padding:12px 14px;border-radius:2px;font-family:'Inter',sans-serif;font-size:.95rem;
-  }
-  select option{color:var(--text);}
-  .result-card{
-    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:4px;padding:32px;
-  }
-  .result-card .rlabel{font-size:.85rem;color:rgba(255,255,255,.6);}
-  .result-card .ramount{font-family:'Fraunces',serif;font-size:2.6rem;color:var(--gold-soft);margin:8px 0 4px;}
-  .result-card .rsub{font-size:.82rem;color:rgba(255,255,255,.5);}
-  .result-card .rdivider{height:1px;background:rgba(255,255,255,.14);margin:22px 0;}
-  .result-card .rline{display:flex;justify-content:space-between;font-size:.9rem;padding:6px 0;color:rgba(255,255,255,.78);}
-  .result-btn{
-    margin-top:22px;width:100%;background:var(--gold);color:var(--navy-deep);padding:14px;border-radius:2px;
-    font-weight:700;font-size:.95rem;text-align:center;
-  }
-  .result-btn:hover{background:var(--gold-soft);}
+  /* Perjalanan / milestone (legit sequence) */
+  .timeline{border-left:2px solid var(--line);margin-left:6px;}
+  .tl-item{position:relative;padding:0 0 40px 32px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{content:'';position:absolute;left:-7px;top:2px;width:12px;height:12px;border-radius:50%;background:var(--red);border:3px solid var(--bg);}
+  .tl-year{font-family:'Fraunces',serif;color:var(--red);font-size:1.05rem;margin-bottom:6px;}
+  .tl-item h3{font-size:1.02rem;color:var(--black);font-weight:600;margin-bottom:6px;}
+  .tl-item p{color:var(--muted);font-size:.94rem;max-width:56ch;}
 
-  /* ---------- Testimoni ---------- */
-  .testi-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
-  @media(max-width:820px){.testi-wrap{grid-template-columns:1fr;}}
-  .testi{background:var(--white);padding:34px;}
-  .testi p.body{font-size:.98rem;color:var(--text);margin-bottom:20px;}
-  .testi .who{font-size:.85rem;color:var(--text-muted);border-top:1px solid var(--line);padding-top:14px;}
-  .testi .who strong{color:var(--navy-deep);display:block;font-weight:600;}
+  /* Tim */
+  .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  @media(max-width:820px){.team-grid{grid-template-columns:repeat(2,1fr);}}
+  .team-card{background:var(--white);padding:30px 24px;}
+  .avatar{width:52px;height:52px;border-radius:50%;background:var(--maroon);color:var(--white);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:600;font-size:1.1rem;margin-bottom:16px;}
+  .team-card h3{font-size:1rem;color:var(--black);font-weight:600;}
+  .team-card .role{font-size:.84rem;color:var(--red);margin-top:2px;margin-bottom:10px;}
+  .team-card p{font-size:.88rem;color:var(--muted);}
 
-  /* ---------- CTA footer band ---------- */
-  .cta-band{background:var(--navy);color:var(--white);padding:44px 0;text-align:left;}
-  .cta-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:28px;}
-  .cta-inner h2{font-size:2rem;font-weight:500;max-width:16ch;}
-  .cta-inner p{color:rgba(255,255,255,.68);margin-top:10px;max-width:38ch;}
+  /* Legalitas */
+  .legal-strip{padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .legal-row{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;}
+  .legal-badge{display:flex;align-items:center;gap:10px;font-size:.86rem;color:var(--muted);}
+  .legal-badge .icon{width:32px;height:32px;border-radius:50%;border:1.5px solid var(--red);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:600;font-size:.8rem;color:var(--black);flex:none;}
+  .legal-badge strong{color:var(--black);}
 
-  footer{padding:52px 0 28px;border-top:1px solid var(--line);}
-  .footer-cols{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;padding-bottom:36px;margin-bottom:28px;border-bottom:1px solid var(--line);}
-  @media(max-width:640px){.footer-cols{grid-template-columns:1fr;row-gap:28px;}}
-  .footer-col h4{font-size:.86rem;color:var(--navy-deep);font-weight:600;margin-bottom:14px;letter-spacing:.01em;}
-  .footer-col p{font-size:.86rem;color:var(--text-muted);line-height:1.7;margin:0;}
-  .footer-col p a{color:var(--text-muted);}
-  .footer-col p a:hover{color:var(--gold);}
-  .footer-contact{display:flex;flex-direction:column;gap:14px;}
-  .footer-contact-row{display:flex;align-items:flex-start;gap:12px;}
-  .footer-contact-row .ficon{flex:none;width:18px;height:18px;color:var(--gold);margin-top:2px;}
-  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;font-size:.86rem;color:var(--text-muted);}
-  .foot-grid a{color:var(--text-muted);}
-  .foot-grid a:hover{color:var(--navy);}
-  .foot-links{display:flex;gap:24px;flex-wrap:wrap;}
+  /* Lokasi + CTA */
+  .cta-band{background:var(--black-deep);color:var(--white);padding:56px 0;}
+  .cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
+  @media(max-width:820px){.cta-grid{grid-template-columns:1fr;gap:36px;}}
+  .cta-grid h2{font-size:1.9rem;font-weight:500;margin-bottom:14px;}
+  .cta-grid p{color:rgba(255,255,255,.68);max-width:44ch;}
+  .cta-actions{display:flex;gap:16px;margin-top:26px;flex-wrap:wrap;}
+  .btn-primary{background:var(--red);color:var(--white);padding:14px 26px;border-radius:2px;font-weight:600;font-size:.94rem;}
+  .btn-primary:hover{background:#C21430;}
+  .btn-outline{padding:14px 6px;border-bottom:1px solid rgba(255,255,255,.5);font-weight:600;font-size:.94rem;}
+  .btn-outline:hover{border-color:var(--white);}
+  .office-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:4px;padding:28px;}
+  .office-card h4{font-size:.86rem;color:var(--red-soft);margin-bottom:10px;}
+  .office-card p{font-size:.94rem;color:rgba(255,255,255,.8);line-height:1.7;}
+  .office-card p a{color:rgba(255,255,255,.8);}
+  .office-card p a:hover{color:var(--white);}
+  .office-divider{height:1px;background:rgba(255,255,255,.14);margin:16px 0;}
 
-  /* ---------- Trust badges strip ---------- */
-  .trust-strip{padding:20px 0;border-bottom:1px solid var(--line);}
-  .trust-row{display:flex;align-items:center;justify-content:center;gap:44px;flex-wrap:wrap;}
-  .trust-badge{display:flex;align-items:center;gap:10px;color:var(--text-muted);font-size:.86rem;}
-  .trust-badge .icon{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;flex:none;color:var(--navy);font-family:'Fraunces',serif;font-weight:600;font-size:.85rem;}
-  .trust-badge strong{color:var(--navy-deep);}
-
-  /* ---------- Paket comparison table ---------- */
-  .plan-table{width:100%;border-collapse:collapse;}
-  .plan-table th,.plan-table td{padding:18px 20px;text-align:left;border-bottom:1px solid var(--line);font-size:.94rem;}
-  .plan-table thead th{border-bottom:2px solid var(--navy-deep);}
-  .plan-table th.plan-col{text-align:center;}
-  .plan-name{font-family:'Fraunces',serif;font-size:1.15rem;color:var(--navy-deep);font-weight:500;}
-  .plan-price{font-size:.85rem;color:var(--text-muted);margin-top:4px;font-family:'Inter',sans-serif;font-weight:400;}
-  .plan-col{text-align:center;}
-  .plan-col.recommended{background:#FCEDEF;box-shadow:inset 0 2px 0 var(--gold);}
-  .plan-ribbon{font-size:.72rem;color:var(--gold);letter-spacing:.02em;margin-bottom:4px;}
-  .plan-check{color:var(--teal-deep);font-weight:700;}
-  .plan-dash{color:var(--text-muted);}
-  .plan-cta-row td{border-bottom:none;padding-top:26px;}
-  .plan-btn{display:inline-block;padding:10px 20px;border:1px solid var(--navy);font-size:.86rem;font-weight:600;border-radius:2px;}
-  .plan-btn:hover{background:var(--navy);color:var(--white);}
-  .plan-btn.solid{background:var(--navy);color:var(--white);}
-  .plan-btn.solid:hover{background:var(--navy-deep);}
-  @media(max-width:700px){
-    .plan-table{font-size:.85rem;}
-    .plan-table th,.plan-table td{padding:12px 8px;}
-  }
-
-  /* ---------- FAQ accordion ---------- */
-  .faq-list{border-top:1px solid var(--line);max-width:760px;}
-  .faq-item{border-bottom:1px solid var(--line);}
-  .faq-item summary{
-    padding:22px 4px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;
-    font-weight:600;color:var(--navy-deep);font-size:1.02rem;gap:20px;
-  }
-  .faq-item summary::-webkit-details-marker{display:none;}
-  .faq-item summary .plus{flex:none;width:22px;height:22px;position:relative;}
-  .faq-item summary .plus::before{
-    content:'';position:absolute;left:5px;top:8px;width:10px;height:10px;
-    border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);
-    transform:rotate(45deg);transition:transform .15s ease;
-  }
-  .faq-item[open] summary .plus::before{transform:rotate(45deg) translate(-2px,-2px);}
-  .faq-item p{padding:0 4px 22px;color:var(--text-muted);font-size:.95rem;max-width:64ch;}
-
-  /* ---------- Ketentuan / exclusions ---------- */
-  .terms-box{background:var(--white);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:2px;padding:32px 36px;max-width:760px;}
-  .terms-box h3{font-size:1.05rem;color:var(--navy-deep);margin-bottom:14px;font-weight:600;}
-  .terms-box ul{list-style:none;}
-  .terms-box li{position:relative;padding-left:22px;font-size:.92rem;color:var(--text-muted);margin-bottom:10px;}
-  .terms-box li::before{content:'–';position:absolute;left:0;color:var(--gold);}
-
-  /* ---------- Lead form (in CTA band) ---------- */
-  .cta-band-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
-  @media(max-width:820px){.cta-band-grid{grid-template-columns:1fr;gap:36px;}}
-  .lead-form{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:4px;padding:30px;}
-  .lead-form .frow{margin-bottom:16px;}
-  .lead-form label{display:block;font-size:.82rem;color:rgba(255,255,255,.7);margin-bottom:8px;}
-  .lead-form input,.lead-form select{
-    width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.24);color:var(--white);
-    padding:12px 14px;border-radius:2px;font-family:'Inter',sans-serif;font-size:.92rem;
-  }
-  .lead-form input::placeholder{color:rgba(255,255,255,.4);}
-  .lead-form select option{color:var(--text);}
-  .lead-submit{width:100%;background:var(--gold);color:var(--navy-deep);padding:13px;border:none;border-radius:2px;font-weight:700;font-size:.92rem;cursor:pointer;margin-top:6px;}
-  .lead-submit:hover{background:var(--gold-soft);}
-  .lead-note{font-size:.78rem;color:rgba(255,255,255,.5);margin-top:12px;}
-  .lead-success{display:none;color:var(--gold-soft);font-size:.92rem;padding:14px 0;}
-
-  /* ---------- Sticky WhatsApp ---------- */
-  .wa-float{
-    position:fixed;right:24px;bottom:24px;z-index:50;background:#1F7A5C;color:var(--white);
-    width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-    box-shadow:0 10px 24px -8px rgba(15,42,74,.5);
-  }
-  .wa-float:hover{background:#186347;}
-  .wa-float svg{width:26px;height:26px;}
-  @media(max-width:640px){.wa-float{right:16px;bottom:16px;width:50px;height:50px;}}
+  footer{padding:32px 0;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap navrow">
-    <div class="logo"><img src="NEW LOGO 2020.png" alt="" class="logo-img" onerror="this.style.display='none'"></div>
-    <nav class="links">
-      <a href="#piramida">Piramida Proteksi</a>
-      <a href="#produk">Produk</a>
-      <a href="#paket">Paket</a>
-      <a href="#klaim">Cara Klaim</a>
-      <a href="#faq">FAQ</a>
+    <div class="logo"><img src="NEW LOGO 2020.png" alt="PruRising Agency" class="logo-img" onerror="this.style.display='none'"></div>
+
+    <nav class="main-nav" id="mainNav">
+
+      <div class="nav-item" data-nav="produk">
+        <button class="nav-trigger">Produk
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+        </button>
+
+        <div class="mega-panel">
+          <div class="mega-col-groups">
+
+            <div class="mega-group">
+              <div class="mega-group-head">
+                <svg class="gicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"></path></svg>
+                Individu
+              </div>
+
+              <button class="cat-row active" data-target="kesehatan">Asuransi Kesehatan
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg>
+              </button>
+              <button class="cat-row" data-target="kritis">Asuransi Penyakit Kritis
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg>
+              </button>
+              <button class="cat-row" data-target="jiwa">Asuransi Jiwa
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg>
+              </button>
+              <button class="cat-row" data-target="investasi">Produk Asuransi Terkait Investasi
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg>
+              </button>
+              <button class="cat-row" data-target="partner">Asuransi Melalui Partner
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg>
+              </button>
+            </div>
+
+            <div class="mega-group">
+              <div class="mega-group-head">
+                <svg class="gicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1"></rect><path d="M9 21v-4h6v4M9 8h1M14 8h1M9 12h1M14 12h1"></path></svg>
+                Korporasi
+              </div>
+
+              <button class="cat-row" data-target="karyawan">Asuransi Karyawan
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg>
+              </button>
+            </div>
+
+          </div>
+
+          <div class="mega-col-products">
+            <div class="prod-list-title">Pilih produk</div>
+
+            <div class="prod-list active" data-list="kesehatan">
+              <a href="#">PRUSehat</a>
+              <a href="#">PRUMedical</a>
+              <a href="#">Asuransi Tambahan Kesehatan PRUWell Health</a>
+            </div>
+            <div class="prod-list" data-list="kritis">
+              <a href="#">PRUCritical Benefit 88</a>
+              <a href="#">PRULady</a>
+            </div>
+            <div class="prod-list" data-list="jiwa">
+              <a href="#">PRUMapan</a>
+              <a href="#">PRUSmart Plan</a>
+              <a href="#">PRUFuture</a>
+            </div>
+            <div class="prod-list" data-list="investasi">
+              <a href="#">PRULink Next Gen</a>
+              <a href="#">PRULink Investor Account</a>
+            </div>
+            <div class="prod-list" data-list="partner">
+              <a href="#">Standard Chartered</a>
+              <a href="#">UOB</a>
+              <a href="#">Permata Bank</a>
+            </div>
+            <div class="prod-list" data-list="karyawan">
+              <a href="#">PRUWorks</a>
+              <a href="#">PRUCooperate</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item" data-nav="layanan">
+        <button class="nav-trigger">Layanan &amp; Klaim
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+        </button>
+
+        <div class="mega-panel">
+          <div class="mega-col-groups">
+            <div class="mega-group">
+              <button class="cat-row active" data-target="lay-panduan">Panduan Klaim
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg>
+              </button>
+              <button class="cat-row" data-target="lay-digital">Layanan Digital
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg>
+              </button>
+              <button class="cat-row" data-target="lay-mednet">PRUMedical Network
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg>
+              </button>
+              <button class="cat-row" data-target="lay-premi">Pembayaran Premi
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg>
+              </button>
+              <button class="cat-row" data-target="lay-dana">Informasi Dana Investasi
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg>
+              </button>
+              <button class="cat-row" data-target="lay-formulir">Kumpulan Formulir
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg>
+              </button>
+              <button class="cat-row" data-target="lay-lain">Informasi Lainnya
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg>
+              </button>
+              <a class="cat-row" href="#">PRU Health Friend</a>
+            </div>
+          </div>
+
+          <div class="mega-col-products">
+            <div class="prod-list-title">Pilih layanan</div>
+            <div class="prod-list active" data-list="lay-panduan">
+              <a href="#">Panduan Klaim Cashless</a>
+              <a href="#">Panduan e-Claim</a>
+              <a href="#">Panduan Klaim Reimbursement</a>
+            </div>
+            <div class="prod-list" data-list="lay-digital">
+              <a href="#">Pelajari PRUServices</a>
+              <a href="#">Portal PRUService</a>
+              <a href="#">E-Withdrawal (Penarikan Dana)</a>
+            </div>
+            <div class="prod-list" data-list="lay-mednet">
+              <a href="#">Daftar Rumah Sakit PRUPriority Hospitals</a>
+              <a href="#">Tentang PRUPriority Hospitals</a>
+              <a href="#">Daftar RS &amp; Klinik Medical Checkup</a>
+            </div>
+            <div class="prod-list" data-list="lay-premi">
+              <a href="#">Portal PRUPay Link</a>
+              <a href="#">Cara Bayar Premi</a>
+            </div>
+            <div class="prod-list" data-list="lay-dana">
+              <a href="#">Harga Harian</a>
+              <a href="#">Laporan Bulanan</a>
+              <a href="#">Laporan Tahunan</a>
+            </div>
+            <div class="prod-list" data-list="lay-formulir">
+              <a href="#">Formulir Klaim</a>
+              <a href="#">Pemegang Polis Individu</a>
+              <a href="#">Pemegang Polis Badan Usaha</a>
+            </div>
+            <div class="prod-list" data-list="lay-lain">
+              <a href="#">Tabel Suku Bunga</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item" data-nav="nasabah">
+        <button class="nav-trigger">Program Nasabah
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+        </button>
+
+        <div class="mega-panel">
+          <div class="mega-col-groups">
+            <div class="mega-group">
+              <button class="cat-row active" data-target="nas-prestige">Program Eksklusif Prestige
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg>
+              </button>
+              <button class="cat-row" data-target="nas-promo">Promo Khusus Nasabah
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg>
+              </button>
+              <a class="cat-row" href="#">Program Loyalitas PRUPoints</a>
+              <a class="cat-row" href="#">Pendampingan Ahli Medis</a>
+              <a class="cat-row" href="#">Program Skrining Kanker</a>
+              <a class="cat-row" href="#">Gabung Affiliate CUAP</a>
+              <a class="cat-row" href="#">Program Referral Nasabah</a>
+            </div>
+          </div>
+
+          <div class="mega-col-products">
+            <div class="prod-list-title">Pilih program</div>
+            <div class="prod-list active" data-list="nas-prestige">
+              <a href="#">Airport Lounge</a>
+              <a href="#">Prestige Health Check</a>
+            </div>
+            <div class="prod-list" data-list="nas-promo">
+              <a href="#">Layanan Nilai Tambah</a>
+              <a href="#">Promo Rumah Sakit</a>
+              <a href="#">PRUHemat</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item" data-nav="pahami">
+        <button class="nav-trigger">Pahami Bareng
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+        </button>
+
+        <div class="mega-panel">
+          <div class="mega-col-groups" style="border-right:none;">
+            <div class="mega-group">
+              <a class="cat-row" href="#">Pahami Level Keuangan</a>
+              <a class="cat-row" href="#">Pahami Asuransi</a>
+              <a class="cat-row" href="#">Pahami Kesehatan &amp; Inspirasi Gaya Hidup</a>
+              <a class="cat-row" href="#">Pahami Keuangan dan Investasi</a>
+              <a class="cat-row" href="#">Pahami Cerita Asuransi</a>
+              <a class="cat-row" href="#">Pahami Hak &amp; Kewajiban</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item" data-nav="perusahaan">
+        <button class="nav-trigger">Perusahaan Kami
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+        </button>
+        <div class="simple-panel"><p>Konten menyusul.</p></div>
+      </div>
+
     </nav>
-    <a href="#konsultasi" class="nav-cta">Konsultasi Gratis</a>
+
+    <a href="#kontak" class="nav-cta">Hubungi Kami</a>
   </div>
 </header>
 
-<section class="hero">
-  <div class="wrap hero-grid">
+<section class="hero" style="padding-top:76px;">
+  <div class="wrap">
+    <div class="eyebrow"><span class="rule"></span>Company Profile</div>
+    <h1>Agensi yang membantu keluarga Indonesia hidup lebih tenang secara finansial.</h1>
+    <p class="lede">PruRising Agency adalah unit keagenan yang membantu individu dan keluarga memahami, memilih, dan mengelola perlindungan finansial melalui produk asuransi jiwa dan kesehatan — dari edukasi awal sampai pendampingan klaim.</p>
+    <div class="hero-stats">
+      <div><div class="hstat-num">12+</div><div class="hstat-label">Tahun beroperasi</div></div>
+      <div><div class="hstat-num">8.500+</div><div class="hstat-label">Nasabah terlayani</div></div>
+      <div><div class="hstat-num">340</div><div class="hstat-label">Agen berlisensi aktif</div></div>
+      <div><div class="hstat-num">18</div><div class="hstat-label">Kota cakupan layanan</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="tentang">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker"><span class="rule"></span>Tentang kami</div>
+      <h2>Dari kantor cabang kecil, menjadi mitra keuangan ribuan keluarga.</h2>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p>PruRising Agency berawal dari sekelompok agen independen yang melihat masalah yang sama: banyak keluarga di Indonesia baru menyadari pentingnya proteksi finansial setelah terlambat — saat sudah menghadapi musibah kesehatan atau kehilangan pencari nafkah.</p>
+        <p>Kami membangun pendekatan yang berbeda: bukan sekadar menjual polis, tapi mendampingi proses perencanaan keuangan keluarga secara menyeluruh, mulai dari edukasi dasar literasi keuangan, pemetaan kebutuhan proteksi, hingga pendampingan saat klaim benar-benar dibutuhkan.</p>
+        <p>Hari ini, PruRising Agency menaungi ratusan agen berlisensi yang tersebar di berbagai kota, dengan fokus pada layanan yang personal dan proses yang transparan.</p>
+      </div>
+      <div class="about-figure">
+        <div class="figure-row">
+          <div class="figure-num">98,2%</div>
+          <div class="figure-label">Rasio klaim nasabah kami yang disetujui</div>
+        </div>
+        <div class="figure-row">
+          <div class="figure-num">4,8/5</div>
+          <div class="figure-label">Rata-rata penilaian kepuasan layanan agen</div>
+        </div>
+        <div class="figure-row">
+          <div class="figure-num">3 hari</div>
+          <div class="figure-label">Rata-rata waktu pendampingan hingga klaim cair</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visi-misi">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker"><span class="rule"></span>Arah kami</div>
+      <h2>Visi dan misi yang memandu setiap keputusan.</h2>
+    </div>
+    <div class="vm-grid">
+      <div class="vision-box">
+        <div class="tag">Visi</div>
+        <div class="statement">Menjadi agensi asuransi paling dipercaya di Indonesia dalam mendampingi keluarga mencapai ketenangan finansial.</div>
+      </div>
+      <div class="mission-list">
+        <div class="mission-item"><span class="n">01</span><p>Memberikan edukasi literasi keuangan yang mudah dipahami sebelum menawarkan produk apa pun.</p></div>
+        <div class="mission-item"><span class="n">02</span><p>Menghadirkan agen berlisensi yang memahami kebutuhan spesifik tiap keluarga, bukan pendekatan satu ukuran untuk semua.</p></div>
+        <div class="mission-item"><span class="n">03</span><p>Mendampingi nasabah secara aktif sejak pendaftaran polis hingga proses klaim selesai.</p></div>
+        <div class="mission-item"><span class="n">04</span><p>Membangun jenjang karier yang jelas dan berkelanjutan bagi setiap agen yang bergabung.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="nilai">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker"><span class="rule"></span>Nilai kami</div>
+      <h2>Empat hal yang tidak kami kompromikan.</h2>
+    </div>
+    <div class="values-list">
+      <div class="value-row"><h3>Transparan</h3><p>Penjelasan biaya, manfaat, dan pengecualian polis disampaikan secara terbuka sejak awal — tanpa istirah tersembunyi.</p></div>
+      <div class="value-row"><h3>Berpihak pada nasabah</h3><p>Rekomendasi produk didasarkan pada kebutuhan nasabah, bukan besaran komisi.</p></div>
+      <div class="value-row"><h3>Responsif</h3><p>Pertanyaan dan klaim ditindaklanjuti dengan cepat, karena penundaan di momen genting berarti banyak bagi keluarga.</p></div>
+      <div class="value-row"><h3>Terus belajar</h3><p>Agen kami mengikuti pelatihan berkala agar pemahaman produk dan regulasi selalu terkini.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="perjalanan">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker"><span class="rule"></span>Perjalanan kami</div>
+      <h2>Tonggak penting sejak awal berdiri.</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-year">2013</div><h3>Berdiri sebagai unit keagenan kecil</h3><p>Dimulai dari 6 agen di satu kota, fokus melayani keluarga muda dan pekerja lepas.</p></div>
+      <div class="tl-item"><div class="tl-year">2017</div><h3>Ekspansi ke 8 kota</h3><p>Membuka jaringan agen di kota-kota besar seiring bertambahnya permintaan layanan konsultasi keuangan.</p></div>
+      <div class="tl-item"><div class="tl-year">2021</div><h3>Digitalisasi proses klaim</h3><p>Meluncurkan pendampingan klaim berbasis aplikasi untuk mempercepat proses administrasi nasabah.</p></div>
+      <div class="tl-item"><div class="tl-year">2025</div><h3>340+ agen berlisensi aktif</h3><p>Menjangkau 18 kota dengan program pelatihan agen dan literasi keuangan komunitas yang berkelanjutan.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="tim">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker"><span class="rule"></span>Tim kepemimpinan</div>
+      <h2>Orang-orang di balik PruRising Agency.</h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card"><div class="avatar">RA</div><h3>Rangga Adiwijaya</h3><div class="role">Agency Director</div><p>Memimpin strategi pertumbuhan agensi dan kemitraan regional.</p></div>
+      <div class="team-card"><div class="avatar">DS</div><h3>Dewi Saraswati</h3><div class="role">Head of Training</div><p>Mengelola program pelatihan dan sertifikasi agen baru.</p></div>
+      <div class="team-card"><div class="avatar">FH</div><h3>Farhan Hidayat</h3><div class="role">Head of Claims Support</div><p>Memastikan proses pendampingan klaim nasabah berjalan cepat dan jelas.</p></div>
+      <div class="team-card"><div class="avatar">NM</div><h3>Nadia Maharani</h3><div class="role">Head of Partnerships</div><p>Mengelola relasi dengan mitra rumah sakit dan komunitas.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="legal-strip">
+  <div class="wrap legal-row">
+    <div class="legal-badge"><span class="icon">OJK</span><span>Agen terdaftar &amp; diawasi <strong>Otoritas Jasa Keuangan</strong></span></div>
+    <div class="legal-badge"><span class="icon">AAJI</span><span>Anggota <strong>Asosiasi Asuransi Jiwa Indonesia</strong></span></div>
+    <div class="legal-badge"><span class="icon">MDRT</span><span>Sejumlah agen kami meraih standar <strong>Million Dollar Round Table</strong></span></div>
+  </div>
+</div>
+
+<div class="cta-band" id="kontak">
+  <div class="wrap cta-grid">
     <div>
-      <div class="eyebrow-line"><span class="rule"></span>Proteksi jiwa &amp; kesehatan keluarga</div>
-      <h1>Jaga yang paling berharga, sebelum semua terlambat</h1>
-      <p class="lede">Lindungi Keluarga menggabungkan santunan jiwa, biaya rawat inap, dan penggantian penghasilan dalam satu premi bulanan — cair dalam 3 hari kerja, tanpa jaringan rumah sakit yang membatasi.</p>
-      <div class="hero-actions">
-        <a href="#simulasi" class="btn-primary">Simulasikan Premi Anda</a>
-        <a href="#produk" class="btn-ghost">Lihat cakupan produk</a>
+      <h2>Ingin berkonsultasi atau bergabung sebagai agen?</h2>
+      <p>Baik Anda calon nasabah yang butuh perencanaan proteksi, atau tertarik membangun karier sebagai agen — tim kami siap membantu.</p>
+      <div class="cta-actions">
+        <a href="#" class="btn-primary">Konsultasi Gratis</a>
+        <a href="#" class="btn-outline">Info Perekrutan Agen</a>
       </div>
     </div>
-    <div class="policy-card">
-      <div class="label">Polis Aktif</div>
-      <div class="name">Lindungi Keluarga — Plan Sejahtera</div>
-      <div class="divider"></div>
-      <div class="policy-row"><span>Santunan jiwa</span><strong>Rp 500.000.000</strong></div>
-      <div class="policy-row"><span>Rawat inap /hari</span><strong>Rp 1.500.000</strong></div>
-      <div class="policy-row"><span>Premi bulanan</span><strong>Rp 285.000</strong></div>
-      <div class="policy-badge"><span class="dot"></span>Klaim tercepat: 3 hari kerja</div>
+    <div class="office-card">
+      <h4>Kantor Pusat</h4>
+      <p>Jl. Sudirman Kav. 45, Lantai 12<br>Jakarta Selatan 12190, Indonesia</p>
+      <div class="office-divider"></div>
+      <h4>Kontak</h4>
+      <p><a href="tel:+622150001234">(021) 5000-1234</a><br><a href="mailto:halo@pruraising.com">halo@pruraising.com</a></p>
+      <div class="office-divider"></div>
+      <h4>Jam Operasional</h4>
+      <p>Senin – Jumat: 08.00 – 17.00<br>Sabtu: 09.00 – 13.00</p>
     </div>
-  </div>
-</section>
-
-<div class="stats">
-  <div class="wrap stats-grid">
-    <div><div class="stat-num">98,2%</div><div class="stat-label">Rasio klaim disetujui tahun 2025</div></div>
-    <div><div class="stat-num">3 hari</div><div class="stat-label">Rata-rata waktu pencairan klaim</div></div>
-    <div><div class="stat-num">1.200+</div><div class="stat-label">Rumah sakit rekanan di Indonesia</div></div>
-    <div><div class="stat-num">Rp 285rb</div><div class="stat-label">Premi mulai per bulan</div></div>
   </div>
 </div>
-
-<div class="trust-strip">
-  <div class="wrap trust-row">
-    <div class="trust-badge"><span class="icon">OJK</span><span>Terdaftar &amp; diawasi <strong>Otoritas Jasa Keuangan</strong></span></div>
-    <div class="trust-badge"><span class="icon">AAJI</span><span>Anggota <strong>Asosiasi Asuransi Jiwa Indonesia</strong></span></div>
-    <div class="trust-badge"><span class="icon">ISO</span><span>Bersertifikat <strong>ISO 9001</strong> manajemen mutu</span></div>
-  </div>
-</div>
-
-<section id="alasan">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="kicker"><span class="rule"></span>Kenapa perlu sekarang</div>
-      <h2>Risiko tidak menunggu Anda siap secara finansial.</h2>
-    </div>
-    <div class="reasons">
-      <div class="reason-list">
-        <div class="reason-item">
-          <span class="n">01</span>
-          <div><h3>Biaya rawat inap naik tiap tahun</h3><p>Inflasi medis di Indonesia rata-rata jauh melampaui inflasi umum — tabungan darurat saja sering tidak cukup.</p></div>
-        </div>
-        <div class="reason-item">
-          <span class="n">02</span>
-          <div><h3>Penghasilan keluarga bertumpu pada satu orang</h3><p>Saat pencari nafkah utama sakit atau berpulang, kebutuhan rumah tangga tetap berjalan seperti biasa.</p></div>
-        </div>
-        <div class="reason-item">
-          <span class="n">03</span>
-          <div><h3>Proses klaim yang berbelit menunda pengobatan</h3><p>Lindungi Keluarga memangkas proses administrasi supaya dana cair sebelum tagihan menumpuk.</p></div>
-        </div>
-      </div>
-      <div class="reason-visual-col">
-        <div class="reason-visual">
-          <div class="quote">"Polis ini yang membuat kami bisa fokus pada pemulihan, bukan pada tagihan rumah sakit."</div>
-          <div class="quote-photo"><img src="Gemini_Generated_Image_8c400b8c400b8c40.jpg"></div>
-          <div class="who">Nasabah Lindungi Keluarga sejak 2023</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="piramida">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="kicker"><span class="rule"></span>Kerangka perencanaan</div>
-      <h2>Piramida Proteksi: urutan prioritas, bukan sekadar daftar produk.</h2>
-      <p>Semakin ke bawah, semakin luas fondasinya. Setiap lapis dibangun di atas lapis sebelumnya — bukan pilihan, tapi tahapan.</p>
-    </div>
-
-    <div class="pyramid-poster">
-      <div class="poster-grid">
-        <div class="poster-col-label">
-          <div class="pband top"><h4 style="color:var(--navy)">Proteksi Jiwa</h4></div>
-          <div class="pband mid"><h4 style="color:#9C7A2E">Proteksi Kondisi Kritis</h4></div>
-          <div class="pband bottom"><h4 style="color:var(--teal-deep)">Proteksi Kesehatan</h4></div>
-          <div class="pband spacer"></div>
-        </div>
-
-        <div class="poster-svg-col">
-          <svg viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Piramida tiga lapis di atas siluet kota: proteksi jiwa di puncak, proteksi kondisi kritis di tengah, proteksi kesehatan di dasar">
-            <g opacity="0.55" fill="#D6D7CF">
-              <rect x="0" y="322" width="20" height="38"></rect>
-              <rect x="22" y="305" width="16" height="55"></rect>
-              <rect x="40" y="330" width="14" height="30"></rect>
-              <rect x="346" y="315" width="16" height="45"></rect>
-              <rect x="364" y="332" width="14" height="28"></rect>
-              <rect x="380" y="300" width="20" height="60"></rect>
-              <rect x="60" y="340" width="12" height="20"></rect>
-              <rect x="330" y="340" width="12" height="20"></rect>
-            </g>
-            <line x1="0" y1="360" x2="400" y2="360" stroke="#D6D7CF" stroke-width="2"></line>
-            <polygon points="200,16 264,140 136,140" fill="var(--navy)"></polygon>
-            <polygon points="136,143 264,143 322,222 78,222" fill="var(--gold)"></polygon>
-            <polygon points="78,225 322,225 372,300 28,300" fill="var(--teal)"></polygon>
-          </svg>
-        </div>
-
-        <div class="poster-col-desc">
-          <div class="pband top"><p>Menyiapkan warisan finansial untuk pasangan atau anak apabila orang tua meninggal dunia.</p></div>
-          <div class="pband mid"><p>Menggantikan penghasilan pencari nafkah utama saat terjadi kondisi kritis di usia produktif.</p></div>
-          <div class="pband bottom"><p>Melindungi aset yang sudah dimiliki dari risiko biaya rumah sakit yang besar.</p></div>
-          <div class="pband spacer"></div>
-        </div>
-      </div>
-
-      <div class="pyramid-foot"><span class="rule"></span>Konsep proteksi finansial keluarga secara menyeluruh, dari dasar hingga puncak.</div>
-    </div>
-  </div>
-</section>
-
-<section id="produk">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="kicker"><span class="rule"></span>Cakupan produk</div>
-      <h2>Tiga lapis perlindungan dalam satu polis.</h2>
-      <p>Pilih plan sesuai kebutuhan keluarga — semua plan mencakup tiga manfaat inti berikut, dengan besaran santunan yang dapat disesuaikan.</p>
-    </div>
-
-    <div class="product-row">
-      <div class="product-visual">
-        <div class="coverage-bar"><span>Santunan jiwa</span><span>Hingga Rp 1 Miliar</span></div>
-        <div class="coverage-track"><div class="coverage-fill" style="width:82%"></div></div>
-        <div class="coverage-bar"><span>Cakupan penyakit kritis</span><span>34 kondisi</span></div>
-        <div class="coverage-track"><div class="coverage-fill" style="width:60%"></div></div>
-      </div>
-      <div>
-        <span class="product-tag">Manfaat inti</span>
-        <h3>Santunan Jiwa &amp; Penyakit Kritis</h3>
-        <p>Memberikan dana tunai kepada ahli waris atau langsung kepada tertanggung saat terdiagnosis salah satu dari 34 kondisi kritis yang dicakup.</p>
-        <ul>
-          <li>Pencairan tanpa menunggu proses hukum waris</li>
-          <li>Uang pertanggungan dapat dinaikkan tiap perpanjangan tahunan</li>
-          <li>Bebas premi otomatis jika tertanggung mengalami cacat total</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="product-row">
-      <div class="product-visual">
-        <div class="coverage-bar"><span>Rawat inap /hari</span><span>Rp 500rb – Rp 3jt</span></div>
-        <div class="coverage-track"><div class="coverage-fill" style="width:70%"></div></div>
-        <div class="coverage-bar"><span>Rumah sakit rekanan</span><span>1.200+ lokasi</span></div>
-        <div class="coverage-track"><div class="coverage-fill" style="width:95%"></div></div>
-      </div>
-      <div>
-        <span class="product-tag">Manfaat inti</span>
-        <h3>Penggantian Biaya Rawat Inap</h3>
-        <p>Santunan harian selama masa rawat inap, cair langsung tanpa perlu menunggu proses reimbursement yang panjang di rumah sakit rekanan.</p>
-        <ul>
-          <li>Kartu cashless di lebih dari 1.200 rumah sakit rekanan</li>
-          <li>Santunan tetap berjalan meski dirawat di luar jaringan</li>
-          <li>Tidak ada batas jumlah klaim rawat inap per tahun</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="product-row">
-      <div class="product-visual">
-        <div class="coverage-bar"><span>Penggantian penghasilan</span><span>3–6 bulan gaji</span></div>
-        <div class="coverage-track"><div class="coverage-fill" style="width:55%"></div></div>
-        <div class="coverage-bar"><span>Masa tunggu</span><span>30 hari</span></div>
-        <div class="coverage-track"><div class="coverage-fill" style="width:20%"></div></div>
-      </div>
-      <div>
-        <span class="product-tag">Manfaat inti</span>
-        <h3>Penggantian Penghasilan Sementara</h3>
-        <p>Saat tertanggung tidak bisa bekerja akibat sakit atau kecelakaan, manfaat ini menjaga arus kas rumah tangga tetap berjalan.</p>
-        <ul>
-          <li>Pembayaran bulanan otomatis ke rekening terdaftar</li>
-          <li>Berlaku sejak hari ke-31 masa pemulihan</li>
-          <li>Dapat dikombinasikan dengan manfaat rawat inap</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="paket">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="kicker"><span class="rule"></span>Pilih paket</div>
-      <h2>Satu struktur manfaat, tiga besaran perlindungan.</h2>
-      <p>Bandingkan langsung — semua paket mencakup tiga manfaat inti yang sama, bedanya ada di besaran santunan dan fasilitas tambahan.</p>
-    </div>
-    <div style="overflow-x:auto;">
-    <table class="plan-table">
-      <thead>
-        <tr>
-          <th></th>
-          <th class="plan-col"><div class="plan-name">Proteksi Kesehatan</div><div class="plan-price">Rp 145rb/bln</div></th>
-          <th class="plan-col recommended"><div class="plan-ribbon">Proteksi Kondisi Kritis</div><div class="plan-name">Sejahtera</div><div class="plan-price">Rp 285rb/bln</div></th>
-          <th class="plan-col"><div class="plan-name">Proteksi Jiwa</div><div class="plan-price">Rp 520rb/bln</div></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Santunan jiwa</td>
-          <td class="plan-col">Rp 250 juta</td>
-          <td class="plan-col recommended">Rp 500 juta</td>
-          <td class="plan-col">Rp 1 Miliar</td>
-        </tr>
-        <tr>
-          <td>Cakupan penyakit kritis</td>
-          <td class="plan-col">15 kondisi</td>
-          <td class="plan-col recommended">34 kondisi</td>
-          <td class="plan-col">49 kondisi</td>
-        </tr>
-        <tr>
-          <td>Santunan rawat inap /hari</td>
-          <td class="plan-col">Rp 500.000</td>
-          <td class="plan-col recommended">Rp 1.500.000</td>
-          <td class="plan-col">Rp 3.000.000</td>
-        </tr>
-        <tr>
-          <td>Penggantian penghasilan</td>
-          <td class="plan-col"><span class="plan-dash">—</span></td>
-          <td class="plan-col recommended"><span class="plan-check">✓</span> 3 bulan gaji</td>
-          <td class="plan-col"><span class="plan-check">✓</span> 6 bulan gaji</td>
-        </tr>
-        <tr>
-          <td>Kartu cashless rumah sakit rekanan</td>
-          <td class="plan-col"><span class="plan-dash">—</span></td>
-          <td class="plan-col recommended"><span class="plan-check">✓</span></td>
-          <td class="plan-col"><span class="plan-check">✓</span></td>
-        </tr>
-        <tr>
-          <td>Medical check-up tahunan</td>
-          <td class="plan-col"><span class="plan-dash">—</span></td>
-          <td class="plan-col recommended"><span class="plan-dash">—</span></td>
-          <td class="plan-col"><span class="plan-check">✓</span></td>
-        </tr>
-        <tr class="plan-cta-row">
-          <td></td>
-          <td class="plan-col"><a href="#konsultasi" class="plan-btn">Pilih Proteksi Dasar</a></td>
-          <td class="plan-col recommended"><a href="#konsultasi" class="plan-btn solid">Pilih Kondisi Kritis</a></td>
-          <td class="plan-col"><a href="#konsultasi" class="plan-btn">Pilih Kondisi Jiwa</a></td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-  </div>
-</section>
-
-<section id="klaim">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="kicker"><span class="rule"></span>Cara klaim</div>
-      <h2>Empat langkah, tanpa antre di kantor cabang.</h2>
-    </div>
-    <div class="claim-steps">
-      <div class="claim-step">
-        <div class="num">01</div>
-        <h3>Ajukan lewat aplikasi</h3>
-        <p>Unggah dokumen pendukung — kartu identitas, catatan medis, dan bukti biaya — langsung dari ponsel.</p>
-      </div>
-      <div class="claim-step">
-        <div class="num">02</div>
-        <h3>Verifikasi otomatis</h3>
-        <p>Sistem mencocokkan dokumen dengan data polis; sebagian besar klaim rawat inap terverifikasi dalam hitungan jam.</p>
-      </div>
-      <div class="claim-step">
-        <div class="num">03</div>
-        <h3>Konfirmasi tim medis</h3>
-        <p>Tim medis internal meninjau klaim yang memerlukan penilaian lebih lanjut, dengan status yang bisa dipantau real-time.</p>
-      </div>
-      <div class="claim-step">
-        <div class="num">04</div>
-        <h3>Dana cair</h3>
-        <p>Santunan ditransfer langsung ke rekening terdaftar, rata-rata dalam 3 hari kerja sejak klaim lengkap.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="simulasi">
-  <div class="wrap">
-    <div class="simulator">
-      <div>
-        <h2>Simulasi Premi Bulanan</h2>
-        <p class="lede2">Geser untuk melihat estimasi premi sesuai usia dan besaran santunan jiwa yang Anda butuhkan.</p>
-
-        <div class="field">
-          <label>Usia tertanggung <span class="val" id="ageVal">30 tahun</span></label>
-          <input type="range" id="ageRange" min="18" max="60" value="30">
-        </div>
-        <div class="field">
-          <label>Santunan jiwa <span class="val" id="coverVal">Rp 500 juta</span></label>
-          <input type="range" id="coverRange" min="100" max="1000" step="50" value="500">
-        </div>
-        <div class="field">
-          <label>Tambahan manfaat rawat inap</label>
-          <select id="addonSelect">
-            <option value="0">Tidak perlu</option>
-            <option value="45000" selected>Ya, Rp 1,5 juta/hari</option>
-            <option value="80000">Ya, Rp 3 juta/hari</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="result-card">
-        <div class="rlabel">Estimasi premi bulanan</div>
-        <div class="ramount" id="premiOutput">Rp 285.000</div>
-        <div class="rsub">Estimasi awal, tunduk pada hasil pemeriksaan kesehatan</div>
-        <div class="rdivider"></div>
-        <div class="rline"><span>Premi dasar</span><span id="baseLine">Rp 240.000</span></div>
-        <div class="rline"><span>Tambahan rawat inap</span><span id="addonLine">Rp 45.000</span></div>
-        <a href="#" class="result-btn">Ajukan Plan Ini</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="testimoni">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="kicker"><span class="rule"></span>Testimoni</div>
-      <h2>Dipercaya keluarga di berbagai kota.</h2>
-    </div>
-    <div class="testi-wrap">
-      <div class="testi">
-        <p class="body">Klaim rawat inap ayah saya cair dalam 2 hari. Saya tidak perlu bolak-balik ke kantor cabang sama sekali.</p>
-        <div class="who"><strong>Dwi Anggraini</strong>Bandung</div>
-      </div>
-      <div class="testi">
-        <p class="body">Preminya jelas sejak awal, tidak ada biaya tersembunyi yang muncul belakangan. Prosesnya juga transparan.</p>
-        <div class="who"><strong>Yoga Pratama</strong>Yogyakarta</div>
-      </div>
-      <div class="testi">
-        <p class="body">Tim medisnya responsif saat saya bertanya soal cakupan penyakit kritis sebelum tanda tangan polis.</p>
-        <div class="who"><strong>Sri Wulandari</strong>Surabaya</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="faq">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="kicker"><span class="rule"></span>Pertanyaan umum</div>
-      <h2>Yang paling sering ditanyakan calon nasabah.</h2>
-    </div>
-    <div class="faq-list">
-      <details class="faq-item" open>
-        <summary>Berapa usia maksimal untuk mendaftar?<span class="plus"></span></summary>
-        <p>Pendaftaran dapat dilakukan sejak usia 18 tahun hingga 60 tahun. Perpanjangan polis yang sudah aktif dapat berlanjut hingga usia 70 tahun selama premi dibayar tepat waktu.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Apakah ada masa tunggu sebelum bisa klaim?<span class="plus"></span></summary>
-        <p>Manfaat rawat inap akibat kecelakaan aktif sejak hari pertama polis berlaku. Untuk rawat inap akibat penyakit dan penyakit kritis, masa tunggu berlaku 30 hari sejak polis disetujui.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Apa saja yang tidak dicakup polis ini?<span class="plus"></span></summary>
-        <p>Kondisi yang sudah ada sebelum polis aktif (pre-existing condition) yang tidak dilaporkan saat pendaftaran, cedera akibat olahraga ekstrem tanpa rider tambahan, dan tindakan bunuh diri dalam dua tahun pertama polis tidak dicakup. Detail lengkap ada di ringkasan polis (Ikhtisar Pertanggungan).</p>
-      </details>
-      <details class="faq-item">
-        <summary>Bisakah saya berhenti berlangganan kapan saja?<span class="plus"></span></summary>
-        <p>Bisa. Anda dapat mengajukan pembatalan polis kapan saja melalui aplikasi tanpa penalti, dengan sisa premi periode berjalan yang telah dibayar akan diperhitungkan sesuai ketentuan polis.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Apakah premi bisa naik di tahun-tahun berikutnya?<span class="plus"></span></summary>
-        <p>Premi dasar mengikuti tabel usia saat perpanjangan tahunan, jadi kenaikannya mengikuti bertambahnya usia tertanggung, bukan berdasarkan riwayat klaim yang pernah diajukan.</p>
-      </details>
-    </div>
-  </div>
-</section>
-
-<section id="ketentuan">
-  <div class="wrap">
-    <div class="terms-box">
-      <h3>Yang perlu diketahui sebelum mendaftar</h3>
-      <ul>
-        <li>Santunan penyakit kritis hanya berlaku untuk kondisi yang tercantum dalam ringkasan polis.</li>
-        <li>Klaim yang berkaitan dengan kondisi kesehatan yang tidak diungkapkan saat pendaftaran dapat ditolak.</li>
-        <li>Manfaat penggantian penghasilan dibatasi hingga jangka waktu maksimal sesuai paket yang dipilih.</li>
-        <li>Perawatan di luar rumah sakit rekanan tetap dicakup, namun dengan mekanisme reimbursement, bukan cashless.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<div class="cta-band">
-  <div class="wrap cta-band-grid">
-    <div>
-      <h2>Mulai lindungi keluarga hari ini.</h2>
-      <p>Isi form ini dan agen berlisensi kami akan menghubungi Anda untuk konsultasi gratis, tanpa kewajiban membeli.</p>
-    </div>
-    <form class="lead-form" id="konsultasi" onsubmit="event.preventDefault(); document.getElementById('leadFormFields').style.display='none'; document.getElementById('leadSuccess').style.display='block';">
-      <div id="leadFormFields">
-        <div class="frow">
-          <label for="leadName">Nama lengkap</label>
-          <input type="text" id="leadName" placeholder="Nama Anda" required>
-        </div>
-        <div class="frow">
-          <label for="leadPhone">Nomor WhatsApp</label>
-          <input type="tel" id="leadPhone" placeholder="08xx xxxx xxxx" required>
-        </div>
-        <div class="frow">
-          <label for="leadPlan">Paket yang diminati</label>
-          <select id="leadPlan">
-            <option>Proteksi Jiwa</option>
-            <option selected>Proteksi Kondisi Kritis</option>
-            <option>Proteksi Kesehatan</option>
-            <option>Belum yakin, ingin konsultasi dulu</option>
-          </select>
-        </div>
-        <button type="submit" class="lead-submit">Hubungi Saya</button>
-        <p class="lead-note">Data Anda hanya digunakan untuk keperluan konsultasi dan tidak dibagikan ke pihak ketiga.</p>
-      </div>
-      <p class="lead-success" id="leadSuccess">Terima kasih! Agen kami akan menghubungi Anda melalui WhatsApp dalam 1x24 jam kerja.</p>
-    </form>
-  </div>
-</div>
-
-<a href="https://wa.me/6281234567890" class="wa-float" target="_blank" rel="noopener" aria-label="Hubungi kami lewat WhatsApp">
-  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.4 0-.5 0-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.1L2 22l5.1-1.3c1.4.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.2.8.9-3.1-.2-.3C4 14.9 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
-</a>
 
 <footer>
-  <div class="wrap footer-cols">
-    <div class="footer-col">
-      <div class="logo" style="margin-bottom:14px;"><img src="NEW LOGO 2020.png" alt="Lindungi" class="logo-img" onerror="this.style.display='none'"></div>
-      <p>Proteksi jiwa &amp; kesehatan keluarga, satu polis untuk semua yang paling ingin Anda jaga.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Kontak Kami</h4>
-      <div class="footer-contact">
-        <div class="footer-contact-row">
-          <svg class="ficon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-7.5-7-12a7 7 0 0 1 14 0c0 4.5-7 12-7 12z"></path><circle cx="12" cy="9" r="2.5"></circle></svg>
-          <p>Kuantan Square Mlati Kav. R15<br>Jl. DR. Wahidin Sudirohusodo, Karang Geneng, Sendangadi, Kec. Mlati, Kab. Sleman, DI. Yogyakarta</p>
-        </div>
-        <div class="footer-contact-row">
-          <svg class="ficon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h4l2 5-2.5 1.5a11 11 0 0 0 5 5L16 12l5 2v4a2 2 0 0 1-2 2C10.5 20 4 13.5 4 5a2 2 0 0 1 2-2z"></path></svg>
-          <p><a href="tel:+622150001234">+62 851-0021-5530
-</a></p>
-        </div>
-        <div class="footer-contact-row">
-          <svg class="ficon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>
-          <p><a href="mailto:halo@lindungi.co.id">adm.pruraising@gmail.com</a></p>
-        </div>
-        <div class="footer-contact-row">
-          <svg class="ficon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>
-          <p>Senin – Jumat, 10.00 – 15.00 WIB</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="wrap foot-grid">
-    <div>© 2026 Lindungi Insurance. Terdaftar dan diawasi Otoritas Jasa Keuangan.</div>
-    <div class="foot-links">
-      <a href="#produk">Produk</a>
-      <a href="#paket">Paket</a>
-      <a href="#faq">FAQ</a>
-      <a href="#">Kebijakan Privasi</a>
+  <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+    <div>© 2026 PruRising Agency. Terdaftar dan diawasi Otoritas Jasa Keuangan.</div>
+    <div style="display:flex;gap:20px;">
+      <a href="#tentang">Tentang Kami</a>
+      <a href="#tim">Tim</a>
+      <a href="#kontak">Kontak</a>
     </div>
   </div>
 </footer>
 
-
 <script>
-  const ageRange = document.getElementById('ageRange');
-  const coverRange = document.getElementById('coverRange');
-  const addonSelect = document.getElementById('addonSelect');
-  const ageVal = document.getElementById('ageVal');
-  const coverVal = document.getElementById('coverVal');
-  const premiOutput = document.getElementById('premiOutput');
-  const baseLine = document.getElementById('baseLine');
-  const addonLine = document.getElementById('addonLine');
+  const navItems = document.querySelectorAll('.nav-item');
 
-  function formatRupiah(n){
-    return 'Rp ' + Math.round(n).toLocaleString('id-ID');
+  function closeAll(except){
+    navItems.forEach(item => { if(item !== except) item.classList.remove('active'); });
   }
 
-  function calculate(){
-    const age = parseInt(ageRange.value, 10);
-    const cover = parseInt(coverRange.value, 10); // in juta
-    const addon = parseInt(addonSelect.value, 10);
+  navItems.forEach(item => {
+    const trigger = item.querySelector('.nav-trigger');
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isActive = item.classList.contains('active');
+      closeAll(item);
+      item.classList.toggle('active', !isActive);
+    });
+  });
 
-    ageVal.textContent = age + ' tahun';
-    coverVal.textContent = 'Rp ' + cover + ' juta';
+  document.addEventListener('click', () => closeAll(null));
 
-    // simple illustrative pricing model
-    const ageFactor = 1 + Math.max(0, age - 25) * 0.018;
-    const base = (cover / 500) * 240000 * ageFactor;
-    const total = base + addon;
+  const catRows = document.querySelectorAll('.cat-row[data-target]');
+  const prodLists = document.querySelectorAll('.prod-list');
+  const standaloneRows = document.querySelectorAll('.cat-row:not([data-target])');
 
-    baseLine.textContent = formatRupiah(base);
-    addonLine.textContent = formatRupiah(addon);
-    premiOutput.textContent = formatRupiah(total);
+  catRows.forEach(row => {
+    row.addEventListener('mouseenter', () => activateCategory(row));
+    row.addEventListener('click', (e) => { e.stopPropagation(); activateCategory(row); });
+  });
+
+  standaloneRows.forEach(row => {
+    row.addEventListener('mouseenter', clearActiveCategory);
+    row.addEventListener('click', () => clearActiveCategory());
+  });
+
+  function clearActiveCategory(){
+    catRows.forEach(r => r.classList.remove('active'));
+    prodLists.forEach(list => list.classList.remove('active'));
   }
 
-  [ageRange, coverRange, addonSelect].forEach(el => el.addEventListener('input', calculate));
-  calculate();
+  function activateCategory(row){
+    const target = row.getAttribute('data-target');
+    catRows.forEach(r => r.classList.toggle('active', r === row));
+    prodLists.forEach(list => list.classList.toggle('active', list.getAttribute('data-list') === target));
+  }
 </script>
 
 </body>
